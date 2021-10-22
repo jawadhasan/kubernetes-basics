@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  dotnettokengen:
+    image: ${DOCKER_REGISTRY-}dotnettokengen
+    ports:
+        - "5000:5000"
+    build:
+      context: .
+      dockerfile: Dockerfile  
