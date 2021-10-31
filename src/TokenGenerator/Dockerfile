@@ -31,3 +31,5 @@ ENTRYPOINT [ "dotnet", "run" ]
 ##Retag and push to dockerhub
 #docker tag dotnettokengen jawadhasanshani/dotnettokengen
 #docker push jawadhasanshani/dotnettokengen
+
+#docker image build -t jawadhasanshani/dotnettokengen:v2

@@ -14,7 +14,8 @@ namespace TokenGenerator.Web.Controllers
             {
                 Guid = Guid.NewGuid().ToString(),
                 Expires = DateTime.Now.AddDays(1),
-                Issuer = Environment.MachineName
+                Issuer = Environment.MachineName,
+                Version = "2.0"
             };
         }
     }
