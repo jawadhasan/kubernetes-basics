@@ -1,0 +1,67 @@
+<div class="component-container ui-g">
+
+  <div class="header ui-g-12">
+    
+    <h2 class="pull-left">Journal Entries</h2>
+
+    <div class="right-buttons pull-right">
+      <button type="button" (click)="addForm()" class="ui-button-success" pButton label="Add New"
+      icon="fa fa-plus"></button>
+    </div>
+
+  </div>
+
+  <div class="ui-g-12 ui-g-nopad">
+    <hr>
+  </div>
+
+
+  <p-table #dt [value]="journalEntries" [scrollable]="true" scrollHeight="55vh">
+    <ng-template pTemplate="header">
+      <tr>
+        <!-- <th>Id</th> -->
+        <th>Date</th>
+        <th style="width: 15%;">
+          Ref No
+           <input pInputText type="text" style="width: 10vw;" (input)="dt.filter($event.target.value, 'referenceNo', 'contains')">
+        
+        </th>
+        <th>Debit</th>
+        <th pSortableColumn="credit">Credit <p-sortIcon field="credit"></p-sortIcon>
+        </th>
+        <th>Ready For Posting</th>
+        <th>Posted</th>
+        <th style="width: 18%;">Action</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-entry>
+      <tr>
+        <td>{{entry.date | date: 'dd.MM.yyyy'}}</td>
+        <td style="width: 15%;">{{entry.referenceNo}}</td>
+        <td>{{entry.debit | number}}</td>
+        <td>{{entry.credit | number}}</td>
+        <!-- <td>{{entry.posted}}</td> -->
+        <td>
+          <p-checkbox [(ngModel)]="entry.readyForPosting" [binary]="true" [readonly]="true"> </p-checkbox>
+        </td>
+        <td>
+          <p-checkbox [(ngModel)]="entry.posted" [binary]="true" [readonly]="true"> </p-checkbox>
+        </td>
+        <td style="width: 18%;">
+          <button id="{{ 'editJournalBtn' + entry.id}}" (click)="editForm(entry.id)" pButton [disabled]="false"
+            icon="fa fa-edit" class="ui-button-secondary"></button>&nbsp;
+          <button id="{{ 'deleteJournalBtn' + entry.id}}" (click)="deleteEntry(entry.id)" pButton
+            [disabled]="entry.posted" icon="fa fa-times" class="ui-button-danger"></button>&nbsp;
+          <button id="{{ 'postJournalBtn' + entry.id}}" (click)="postEntry(entry.id)" pButton
+            [disabled]="entry.posted || !entry.readyForPosting" icon="fa fa-chevron-right "
+            class="ui-button-success"></button>
+
+        </td>
+
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-toast></p-toast>
+</div>
+

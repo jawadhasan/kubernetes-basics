@@ -1,0 +1,43 @@
+<div class="component-container ui-g">
+
+  <div class="header ui-g-12">
+    <h2>Company</h2>
+    <hr>
+  </div>
+</div>
+
+
+<p-panel header="Company Form" class="ui-g">
+      
+<form [formGroup]="companyForm" (ngSubmit)="save()">
+
+  <div class="ui-g">
+    <label for="companyName" class="ui-g-12 ui-md-2">Name*:</label>
+    <input id="companyName" class="ui-g-12 ui-md-10" placeholder="Enter company name" type="text" name="companyName" pInputText formControlName="companyName" required/>
+  </div>
+
+  <div class="ui-g">
+    <label for="shortName" class="ui-g-12 ui-md-2">Short Name*:</label>
+    <input id="shortName" class="ui-g-12 ui-md-10" placeholder="Enter short name" type="text" name="shortName" pInputText formControlName="shortName" required/>
+  </div>
+
+  <div class="ui-g">
+    <label for="companyCode" class="ui-g-12 ui-md-2">Company Code*:</label>
+    <input id="companyCode" class="ui-g-12 ui-md-10" placeholder="Enter company code" type="text" name="companyCode" pInputText formControlName="companyCode" required maxlength="5"/>
+  </div>
+
+  <hr>
+
+
+  <div class="ui-g">
+    <button pButton type="submit" [disabled]="hasFormErrors()" label="Save" icon="fa fa-floppy-o"></button>
+
+  </div>
+
+
+</form>
+
+
+
+</p-panel>
+<p-toast></p-toast>

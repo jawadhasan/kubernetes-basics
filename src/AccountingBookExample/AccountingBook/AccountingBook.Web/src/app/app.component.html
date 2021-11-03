@@ -1,0 +1,35 @@
+<div class="ui-g ui-g-nopad" id="header">
+
+    <div class="ui-g-10">     
+      <span class="app-title"> Accounting Application</span>    
+    </div>
+    
+    <div class="ui-g-2" id="notifications">
+      
+    </div>
+ 
+</div>
+  
+  <div class="ui-g ui-g-nopad">
+  
+    <div class="ui-g-2 ui-g-nopad" id="sidegutter">
+  
+      <div id="sidenav">        
+        <p-menu #bigMenu [model]="menuItems"></p-menu> 
+      </div>
+  
+    </div>
+  
+    <div class="ui-g-2 ui-g-nopad" id="minigutter">
+  
+      <div id="sidenav-mini">
+        Small menu
+      </div>
+  
+    </div>
+
+    <div id="content-body" class="ui-g-10 ui-g-nopad"> 
+      <router-outlet></router-outlet>  
+    </div>
+  </div>
+

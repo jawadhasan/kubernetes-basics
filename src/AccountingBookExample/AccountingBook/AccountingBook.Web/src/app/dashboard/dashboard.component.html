@@ -1,0 +1,39 @@
+<div class="component-container ui-g">
+
+  <div class="header ui-g-12">
+    <h2 class="pull-left">Dashboard</h2>
+
+    <div class="right-buttons pull-right">
+      <button type="button" (click)="loadData()" class="ui-button-info" pButton label="Refresh"
+        icon="fa fa-refresh"></button>
+    </div>
+    <div class="ui-g-12 ui-g-nopad">
+      <hr>
+    </div>
+  </div>
+
+</div>
+
+
+  <!-- Stats widgets -->
+  <div class="ui-g">
+    <ab-statistics *ngFor="let item of stats" [label]="item.label" [value]="item.value" [icon]="item.icon"
+      [colour]="item.colour" class="ui-g-12 ui-md-6 ui-lg-3">
+    </ab-statistics>
+  </div>
+
+
+  <!-- Pie Chart -->
+<div class="ui-g">
+
+  <p-panel header="Account Balance (pie)" class="ui-g-12 ui-md-6">
+    <p-chart type="pie" [data]="balanceByAccountChartData"></p-chart>
+  </p-panel>
+
+  <!-- Doughnut Chart -->
+  <p-panel header="Account Balance (doughnut)" class="ui-g-12 ui-md-6">
+    <p-chart type="doughnut" [data]="balanceByAccountChartData"></p-chart>
+  </p-panel>
+  
+</div>
+

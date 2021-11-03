@@ -1,0 +1,49 @@
+<div class="component-container ui-g">
+
+    <div class="header ui-g-12">
+    
+        <h2 class="pull-left">Chart of Accounts</h2>
+    
+        <div class="right-buttons pull-right">
+          <button type="button" (click)="addForm()" class="ui-button-success" pButton label="Add New"
+          icon="fa fa-plus"></button>
+        </div>       
+      
+      </div>
+
+      <div class="ui-g-12 ui-g-nopad">
+        <hr>
+      </div>
+      
+
+    <p-treeTable [value]="coa" [scrollable]="true" scrollHeight="60vh">
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th colspan="2">Account Name</th>
+                <th>Account Code</th>                
+                <th>Debit</th>
+                <th>Credit</th>
+                <th>Balance</th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+            <tr>
+                <td colspan="2">
+                    <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+                    {{rowData.accountName}}
+                </td>
+                <td>{{rowData.accountCode}}</td>
+                <td>{{rowData.debitBalance | number }}</td>
+                <td>{{rowData.creditBalance | number}}</td>
+                <td>{{rowData.balance | number}}</td>
+              
+            </tr>
+        </ng-template>
+
+    </p-treeTable>
+
+    <p-toast></p-toast>
+
+</div>

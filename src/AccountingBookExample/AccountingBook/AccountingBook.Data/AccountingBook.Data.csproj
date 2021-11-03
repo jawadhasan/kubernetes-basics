@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200628185935_AccountEntityModified.cs" />
+    <Compile Remove="Migrations\20200628185935_AccountEntityModified.Designer.cs" />
+    <Compile Remove="Migrations\20200628191146_JournalEntryModified.cs" />
+    <Compile Remove="Migrations\20200628191146_JournalEntryModified.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AccountingBook.Core\AccountingBook.Core.csproj" />
+  </ItemGroup>
+
+</Project>

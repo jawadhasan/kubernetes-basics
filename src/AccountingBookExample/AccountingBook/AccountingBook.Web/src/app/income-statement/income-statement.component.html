@@ -1,0 +1,39 @@
+<p-table #dt [value]="incomeStatement" [scrollable]="true" scrollHeight="38vh">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Account Type</th>
+            <th>Account Code</th>
+            <th>Account Name</th>
+            <th>Amount</th>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-entry>
+        <tr>
+            <td>
+                {{entry.isExpense ? 'Expenses' : 'Revenues'}}
+            </td>
+            <td>{{entry.accountCode}}</td>
+            <td>{{entry.accountName}}</td>
+            <td>{{entry.amount | number}}</td>
+
+
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="footer" let-columns>
+        <tr>
+            <td colspan="3"><span class="pull-right">Net Income</span></td>
+            <td>{{getSumRevenue() - getSumExpense() | number}}</td>
+        </tr>
+        <tr>
+            <td colspan="3"><span class="pull-right">Total Revenue</span></td>
+            <td>{{getSumRevenue() | number}}</td>
+        </tr>
+        <tr>
+            <td colspan="3"><span class="pull-right">Total Expense</span></td>
+            <td>{{getSumExpense() | number}}</td>
+        </tr>
+    </ng-template>
+
+</p-table>
