@@ -16,7 +16,7 @@ kind: Deployment
 metadata:
   name: accounting-web
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: accounting-web #this connect deployment with pod spec
@@ -27,6 +27,6 @@ spec:
     spec:     
       containers:    
       - name: accounting-web-ctr
-        image: jawadhasanshani/accountingbook:v1
+        image: jawadhasanshani/accountingbook:v2
         ports:
         - containerPort: 5000
