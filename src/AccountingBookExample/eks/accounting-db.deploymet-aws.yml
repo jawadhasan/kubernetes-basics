@@ -20,6 +20,11 @@ spec:
         volumeMounts:
         - mountPath: /var/lib/postgresql/data
           name: pgdata-volume
+          subPath: test1
       volumes:
-      - name: pgdata-volume
-        emptyDir: {}
+        - name: pgdata-volume
+          # This AWS EBS volume must already exist.
+          awsElasticBlockStore:
+            volumeID: vol-0b2853bbd0a14121d
+            fsType: ext4
+
