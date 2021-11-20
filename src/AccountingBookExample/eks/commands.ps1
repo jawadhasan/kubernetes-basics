@@ -6,4 +6,3 @@ eksctl create cluster `
 --nodes-min 2 `
 --nodes-max 4 `
 --node-ami auto
-
