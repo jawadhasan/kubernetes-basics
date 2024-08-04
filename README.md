@@ -1,6 +1,6 @@
-# hexquote.com
+# Kubernetes Basics
 
-Kubernetes Basics
+Kubernetes Basics Demos
 
 ## Articles
 
